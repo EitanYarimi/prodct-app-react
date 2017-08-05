@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ProductList from './ProductList';
 import Product from './Product';
-import ProductApi from '../services/productsApi'
 import Header from './common/header'
 import {connect} from 'react-redux';
 import * as productActions from '../Actions/productActions'

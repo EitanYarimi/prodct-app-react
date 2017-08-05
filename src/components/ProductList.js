@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import {  Link } from 'react-router-dom';
-import { ListGroupItem ,ListGroup ,Button ,Image} from 'react-bootstrap';
+import { ListGroupItem ,ListGroup } from 'react-bootstrap';
 import * as productActions from '../Actions/productActions';
 import {connect} from 'react-redux';
 
@@ -10,9 +10,7 @@ class ProductList extends Component {
 	{
 		super(props,context);
 
-		this.state ={
-			products:[]
-		}	
+		
 
 		this.createProductRow = this.createProductRow.bind(this);	
 		this.onClickDelete	= this.onClickDelete.bind(this,);
@@ -26,17 +24,15 @@ class ProductList extends Component {
 
 	createProductRow(product,index) {
 		
-		return(
+		return(<div>
 				 <ListGroupItem href={'/products/' + product.id } header={product.name}  key={index}>
-				 	<span >{product.description}</span>	
-				 	<div>		
-					<button onClick={this.onClickDelete.bind(this,product)} className="btn btn-xs btn-warning">
-				       <span className="glyphicon glyphicon-trash"></span>
-				     </button>
-				     </div>
-																												
-				</ListGroupItem>  
-			  ) ;				
+				 	<span >{product.description}</span>																													
+				 </ListGroupItem>  
+				 <button onClick={this.onClickDelete.bind(this,product)} className="btn btn-xs btn-warning">
+				       <span> Delete</span>
+				 </button>
+				</div>
+			  );				
 	}	
 
   	render() {		

@@ -90,16 +90,3 @@ function getlocalStorageProducts() {
 
 	return JSON.parse(localStorage.getItem("products"));
 }
-
-function compareByName(a,b)
-{
-   a = a.toLowerCase();
-   b = b.toLowerCase();
-
-  return (a < b) ? -1 : (a > b) ? 1 : 0;
-}
-
-function compareByDate(a,b)
-{    
-	 return new Date(a).getTime() + new Date(b).getTime();
-}

@@ -12,7 +12,7 @@ export default function productReducer(state = [],action){
 			ProductApi.setProducts(newState);
 			return newState;		
 		case 'DELETE_PRODUCT':
-			 newState = state.filter(element => element !== action.product);
+			 newState = [...state].filter(element => element !== action.product);
 			ProductApi.setProducts(newState);
 			return newState;
 
