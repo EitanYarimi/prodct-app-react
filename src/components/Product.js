@@ -11,14 +11,11 @@ class Product extends Component {
 		super(props,context);
 	
 		this.state = {
-			product: { 
-						
-						name:'1',
-						description:'2',
+			product: { 						
+						name:'grape',
+						description:'purple',
 						price:'3'
 					 }
-			
-
 		};
 
 		this.handleNameChange = this.handleNameChange.bind(this);
@@ -56,7 +53,7 @@ class Product extends Component {
 
 	onClickSave(e)
 	{
-		
+
 		this.props.createProduct(this.state.product);
 
 		 console.log(this.state.product);

@@ -4,23 +4,35 @@ import Product from './Product';
 import ProductApi from '../services/productsApi'
 import Header from './common/header'
 import {connect} from 'react-redux';
-//import * as productActions from '../Actions/productActions'
+import * as productActions from '../Actions/productActions'
 import { DropdownButton , MenuItem ,Grid ,Col ,Row } from 'react-bootstrap';
 
 class Store extends Component {
 	
-	state = {
-		products:[]	
-		
-	};
+	constructor(props,context)
+	{
+		super(props,context);	
 
-	componentDidMount() {					
-
-		this.setState({
-			products: ProductApi.getProducts()
+		this.state ={
 			
-		});		
+			products:[]
+		}	
+
+		this.sortByName = this.sortByName.bind(this);	
+		this.sortByDate	= this.sortByDate.bind(this);		
+	}	
+	
+	sortByName()
+	{
+		this.props.actions.sortProductsByName();
 	}
+	
+	sortByDate()
+	{
+		this.props.actions.sortProductsByDate();	
+
+	}
+
 
   	render() {
 			
@@ -30,16 +42,16 @@ class Store extends Component {
 				<Grid>				  	
 				    <Row className="show-grid">
 				      	<Col md={6} mdPush={6}>
-				      		<Product  lastIndex={this.state.lastIndex}  ></Product>
+				      		<Product></Product>
 				      	</Col>
 				      	<Col md={6} mdPull={6}>
 					        <div className="Store">
 				  				<DropdownButton title="Order By" id="bg-nested-dropdown">
-						  			<MenuItem eventKey="1">Name</MenuItem>
-						  			<MenuItem eventKey="2">Create Date</MenuItem>
+						  			<MenuItem onClick={this.sortByName} eventKey="1">Name</MenuItem>
+						  			<MenuItem onClick={this.sortByDate}  eventKey="2">Create Date</MenuItem>
 				    			</DropdownButton>
 
-				  				<ProductList products={this.state.products}></ProductList>
+				  				<ProductList  products={this.state.products}></ProductList>
 				  			</div>
 				    	</Col>
 				  </Row>
@@ -55,18 +67,18 @@ class Store extends Component {
 
 		products :state.products
 
-
-
 	};
 }
 
 function mapDispatchToProps(dispatch){
 
-	return {
-
-		//createProduct: product => dispatch(productActions.createProduct(product))
-
+return{ 
+		actions:{
+					sortProductsByName:()=>  dispatch(productActions.sortProductsByName()),
+					sortProductsByDate:()=>  dispatch(productActions.sortProductsByDate())
+				}	
 	};
+	
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Store);

@@ -2,14 +2,7 @@
 export default  {
 
 	products:
-	[{		  				
-			id:1,
-			name:'apple',
-			description:'red',
-			price: 1,
-			createDate: '2017-08-05T19:17:06.765Z'
-			 
-		},
+	[
 		{
 				
 			id:2,
@@ -17,6 +10,14 @@ export default  {
 			description:'yellow',
 			price:1.5,
 			createDate: '2017-08-04T19:17:06.765Z'
+			 
+		},
+		{		  				
+			id:1,
+			name:'apple',
+			description:'red',
+			price: 1,
+			createDate: '2017-08-05T19:17:06.765Z'
 			 
 		},
 		{

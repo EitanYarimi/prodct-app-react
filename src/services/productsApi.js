@@ -14,18 +14,18 @@ var ProductApi = {
 			
 			products = products? products : StoreData.products;
 
-			products = products.sort(function(a,b){
+			// products = products.sort(function(a,b){
 				
-				if(sortType === 'name')
-				{
-					return compareByName(a.name,b.name);
-				}
-				else
-				{
-					return compareByDate(a.createDate,b.createDate);
-				}			
+			// 	if(sortType === 'name')
+			// 	{
+			// 		return compareByName(a.name,b.name);
+			// 	}
+			// 	else
+			// 	{
+			// 		return compareByDate(a.createDate,b.createDate);
+			// 	}			
 			
-			});
+			// });
 			
 			setlocalStorageProducts(products);
 
