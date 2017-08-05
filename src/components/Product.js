@@ -15,7 +15,10 @@ class Product extends Component {
 						name:'grape',
 						description:'purple',
 						price:'3'
-					 }
+					 },
+			nameVaild:true,
+			descVaild:true,
+			priceVaild:true
 		};
 
 		this.handleNameChange = this.handleNameChange.bind(this);
@@ -25,7 +28,21 @@ class Product extends Component {
 
 	}
 
-	getValidationState(argument) {
+	getNameValidationState(argument) {
+		if(!this.state.nameVaild)
+		return 'error';
+		
+	}
+
+	getPriceValidationState(argument) {
+		if(!this.state.priceVaild)
+		return 'error';
+		
+	}
+
+	getDescriptionValidationState(argument) {
+		if(!this.state.priceVaild)
+		return 'error';
 		
 	}
 
@@ -65,9 +82,9 @@ class Product extends Component {
 		return (
 			<div>				
 			     <form>
-			        <FormGroup
+			        <FormGroup 
 			          controlId="formBasicText"
-			          validationState={this.getValidationState()}>
+			          validationState={this.getNameValidationState()}>
 			        
 			          <ControlLabel>Name</ControlLabel>
 			          <FormControl
@@ -76,7 +93,11 @@ class Product extends Component {
 			            placeholder="Enter text"
 			            onChange={this.handleNameChange}
 			          />
-			          <FormControl.Feedback />			        
+			          <FormControl.Feedback />
+			           </FormGroup>	
+			           <FormGroup 
+			          controlId="formBasicText"
+			          validationState={this.getDescriptionValidationState()}>	        
 			          <ControlLabel>Description</ControlLabel>
 			          <FormControl
 			            type="text"
@@ -84,7 +105,11 @@ class Product extends Component {
 			            placeholder="Enter text"
 			            onChange={this.handleDescriptionChange}
 			          />
-			          <FormControl.Feedback />			          
+			          <FormControl.Feedback />	
+			           </FormGroup>		          
+			          <FormGroup 
+			          controlId="formBasicText"
+			          validationState={this.getPriceValidationState()}>
 			          <ControlLabel>Price</ControlLabel>
 			          <FormControl
 			            type="number"

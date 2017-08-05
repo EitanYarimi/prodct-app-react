@@ -24,8 +24,8 @@ class ProductList extends Component {
 
 	createProductRow(product,index) {
 		
-		return(<div>
-				 <ListGroupItem href={'/products/' + product.id } header={product.name}  key={index}>
+		return(<div key={index}>
+				 <ListGroupItem href={'/products/' + product.id } header={product.name}  >
 				 	<span >{product.description}</span>																													
 				 </ListGroupItem>  
 				 <button onClick={this.onClickDelete.bind(this,product)} className="btn btn-xs btn-warning">
