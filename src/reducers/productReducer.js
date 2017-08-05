@@ -18,20 +18,18 @@ export default function productReducer(state = [],action){
 			return newState;
 
 		case 'SORT_PRODUCTS_NAME':
-		console.log('state:',state)
-		newState =  state.sort(function(a,b){
-		 		return compareByName(a.name,b.name);
-		 	});
-		console.log('newState:',newState)
-		return newState;
+			newState =  [...state].sort(function(a,b){
+			 		return compareByName(a.name,b.name);
+			 	});
+			
+			return newState;
 		
 		case 'SORT_PRODUCTS_DATE':
-		console.log('state:',state)
-		 newState =  state.sort(function(a,b){
-		 		return compareByDate(a.createDate,b.createDate);
-		 	});
-		 console.log('newState:',newState)
-		  return newState;
+			newState =  [...state].sort(function(a,b){
+			 		return compareByDate(a.createDate,b.createDate);
+			 	});
+			
+		 	 return newState;
 
 		default:
 			return state;
