@@ -1,4 +1,3 @@
-
 import ProductApi from '../services/productsApi'
 
 export default function productReducer(state = [],action){
@@ -21,22 +20,21 @@ export default function productReducer(state = [],action){
 			newState =  [...state].sort(function(a,b){
 			 		return compareByName(a.name,b.name);
 			 	});
-			
+			ProductApi.setProducts(newState);
 			return newState;
 		
 		case 'SORT_PRODUCTS_DATE':
 			newState =  [...state].sort(function(a,b){
 			 		return compareByDate(a.createDate,b.createDate);
 			 	});
-			
+			ProductApi.setProducts(newState);
 		 	 return newState;
 
 		default:
 			return state;
-
 	}
-
 }
+
 
 
 function compareByName(a,b)
