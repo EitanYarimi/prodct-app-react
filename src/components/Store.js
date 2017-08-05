@@ -12,10 +12,7 @@ class Store extends Component {
 	{
 		super(props,context);	
 
-		this.state ={
-			
-			products:[]
-		}	
+		
 
 		this.sortByName = this.sortByName.bind(this);	
 		this.sortByDate	= this.sortByDate.bind(this);		
@@ -50,7 +47,7 @@ class Store extends Component {
 						  			<MenuItem onClick={this.sortByDate}  eventKey="2">Create Date</MenuItem>
 				    			</DropdownButton>
 
-				  				<ProductList  products={this.state.products}></ProductList>
+				  				<ProductList  products={this.props.products}></ProductList>
 				  			</div>
 				    	</Col>
 				  </Row>

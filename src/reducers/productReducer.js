@@ -7,7 +7,7 @@ export default function productReducer(state = [],action){
 	switch(action.type)
 	{	
 		case 'CREATE_PRODUCT':			
-			action.product.date = new Date();			
+			action.product.createDate = new Date().getTime();			
 			 newState =  [...state,Object.assign({},action.product)];	//shadow copy state	
 			ProductApi.setProducts(newState);
 			return newState;		

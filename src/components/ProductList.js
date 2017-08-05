@@ -27,7 +27,7 @@ class ProductList extends Component {
 		return(<div key={index}>
 				 <ListGroupItem href={'/products/' + product.id } header={product.name}  >
 				 	<span >{product.description}</span>																													
-				 </ListGroupItem>  
+				 </ListGroupItem>   
 				 <button onClick={this.onClickDelete.bind(this,product)} className="btn btn-xs btn-warning">
 				       <span> Delete</span>
 				 </button>
