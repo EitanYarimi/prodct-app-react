@@ -8,56 +8,52 @@ import { DropdownButton , MenuItem ,Grid ,Col ,Row } from 'react-bootstrap';
 
 class Store extends Component {
 	
-	constructor(props,context)
-	{
-		super(props,context);	
-
+	constructor(props,context)  {
 		
+		super(props,context);           
 
-		this.sortByName = this.sortByName.bind(this);	
-		this.sortByDate	= this.sortByDate.bind(this);		
-	}	
+		this.sortByName = this.sortByName.bind(this);   
+		this.sortByDate = this.sortByDate.bind(this);       
+	}   
 	
-	sortByName()
-	{
+	sortByName() {
+
 		this.props.actions.sortProductsByName();
 	}
 	
-	sortByDate()
-	{
-		this.props.actions.sortProductsByDate();	
+	sortByDate()    {
+
+		this.props.actions.sortProductsByDate();    
 
 	}
 
+	render() {
 
-  	render() {
-			
-  		return (
+		return (
 			<div>
 				<Header/>
-				<Grid>				  	
-				    <Row className="show-grid">
-				      	<Col md={6} mdPush={6}>
-				      		<Product></Product>
-				      	</Col>
-				      	<Col md={6} mdPull={6}>
-					        <div className="Store">
-				  				<DropdownButton title="Order By" id="bg-nested-dropdown">
-						  			<MenuItem onClick={this.sortByName} eventKey="1">Name</MenuItem>
-						  			<MenuItem onClick={this.sortByDate}  eventKey="2">Create Date</MenuItem>
-				    			</DropdownButton>
+				<Grid>                  
+					<Row className="show-grid">
+					<Col md={6} mdPush={6}>
+						<Product></Product>
+					</Col>
+					<Col md={6} mdPull={6}>
+						<div className="Store">
+						<DropdownButton title="Order By" id="bg-nested-dropdown">
+							<MenuItem onClick={this.sortByName} eventKey="1">Name</MenuItem>
+							<MenuItem onClick={this.sortByDate}  eventKey="2">Create Date</MenuItem>
+						</DropdownButton>
+						<ProductList  products={this.props.products}></ProductList>
+						</div>
+					</Col>
+					</Row>
+				</Grid>             
+			</div>          
+			);
+	}
+}
 
-				  				<ProductList  products={this.props.products}></ProductList>
-				  			</div>
-				    	</Col>
-				  </Row>
-			  	</Grid>  			
-			</div>	  		
-  		);
-  	}
-  }
-
- function mapStateToProps(state,ownProps){
+function mapStateToProps(state,ownProps){
 
 	return{
 
@@ -68,11 +64,11 @@ class Store extends Component {
 
 function mapDispatchToProps(dispatch){
 
-return{ 
+	return{ 
 		actions:{
-					sortProductsByName:()=>  dispatch(productActions.sortProductsByName()),
-					sortProductsByDate:()=>  dispatch(productActions.sortProductsByDate())
-				}	
+			sortProductsByName:()=>  dispatch(productActions.sortProductsByName()),
+			sortProductsByDate:()=>  dispatch(productActions.sortProductsByDate())
+		}   
 	};
 	
 }
